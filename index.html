@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kitchen — a focus timer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="app" data-mode="focus">
+
+  <header class="app-header">
+    <span class="wordmark">Focus On</span>
+    <button id="settings-toggle" class="icon-btn" aria-label="Open settings" aria-expanded="false">⚙</button>
+  </header>
+
+  <section class="dial-wrap">
+    <svg class="dial" viewBox="0 0 300 300" role="img" aria-label="Timer progress">
+      <g class="ticks" id="ticks"></g>
+      <circle class="dial-track" cx="150" cy="150" r="120"></circle>
+      <circle class="dial-progress" id="dial-progress" cx="150" cy="150" r="120"></circle>
+    </svg>
+    <div class="dial-face">
+      <p class="mode-label" id="mode-label">Focus</p>
+      <p class="time" id="time-display">25:00</p>
+      <p class="cycle-label" id="cycle-label">Session 1</p>
+    </div>
+  </section>
+
+  <div class="dots" id="dots" aria-hidden="true"></div>
+
+  <div class="controls">
+    <button id="reset-btn" class="btn btn-ghost" aria-label="Reset timer">reset</button>
+    <button id="start-btn" class="btn btn-primary">start</button>
+    <button id="skip-btn" class="btn btn-ghost" aria-label="Skip to next session">skip</button>
+  </div>
+
+  <aside id="settings-panel" class="settings" aria-hidden="true">
+    <h2>Durations <span class="settings-unit">minutes</span></h2>
+
+    <label class="field">
+      <span>Focus</span>
+      <input type="number" id="focus-input" min="1" max="120" value="25">
+    </label>
+    <label class="field">
+      <span>Short break</span>
+      <input type="number" id="short-input" min="1" max="60" value="5">
+    </label>
+    <label class="field">
+      <span>Long break</span>
+      <input type="number" id="long-input" min="1" max="60" value="15">
+    </label>
+    <label class="field">
+      <span>Long break every</span>
+      <input type="number" id="interval-input" min="2" max="12" value="4">
+    </label>
+
+    <label class="field field-toggle">
+      <span>Sound</span>
+      <input type="checkbox" id="sound-input" checked>
+    </label>
+
+    <button id="settings-close" class="btn btn-ghost settings-close">done</button>
+  </aside>
+
+</main>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
